@@ -1,5 +1,6 @@
 master:
   image: gettyimages/spark
+  container_name: spark_master
   command: bin/spark-class org.apache.spark.deploy.master.Master -h master
   hostname: master
   environment:
@@ -25,6 +26,7 @@ master:
 
 worker:
   image: gettyimages/spark
+  container_name: spark_worker1
   command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
   hostname: worker
   environment:
